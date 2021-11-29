@@ -12,9 +12,13 @@ Install by running `python setup.py install` in the unitcentroid directory once 
 
 Some example data ships with the package, drawn from simulations presented in Donaldson et al. (2022).
 
-In an experiment that is sensitive to the direction of particles, we are given a set of observations that triggered a detector. These observations may be selected in any fashion; typically one assumes that only particles above some energy threshold (equivalently, $v_{\rm min}$) will trigger a detector.
+In an experiment that is sensitive to the direction of particles, we are given a set of observations that triggered a detector. These observations may be selected in any fashion; typically one assumes that only particles above some energy threshold (equivalently,
+<img src="https://render.githubusercontent.com/render/math?math=v_%7B%5Crm%7Bmin%7D%7D">) will trigger a detector.
 
-Given a sample of $n$ observations distributed with angles $(\phi,\theta)$ on the sky, we compute the set of angular separations between each individual observation $i$ and all other particles, $\Xi_i = \{\xi_1,\dots,\xi_j,\dots,\xi_n\}$ for $j \in[1,n],j\ne i$, where $\xi_j$ is the angular separation between the $j^{\rm th}$ observation and the $i^{\rm th}$ observation. For each set $\Xi_j$, we compute the $p^{\rm th}$ percentile value, which we denote $\Xi_j|_{p}$. In our case, we choose $p=50$, which is the median. Smaller values of $p$ with emphasise contributions from higher-density regions, lower values of $p$ will emphasise lower-density regions. The observation with the minimum $\Xi_j|_{p}$ is defined as the centroid observation.
+Given a sample of
+<img src="https://render.githubusercontent.com/render/math?math=n"> observations distributed with angles $(\phi,\theta)$ on the sky, we compute the set of angular separations between each individual observation $i$ and all other particles,
+<img src="https://render.githubusercontent.com/render/math?math=%5CXi_i%20%3D%20%5C%7B%5Cxi_1%2C%5Cdots%2C%5Cxi_j%2C%5Cdots%2C%5Cxi_n%5C%7D">
+for $j \in[1,n],j\ne i$, where $\xi_j$ is the angular separation between the $j^{\rm th}$ observation and the $i^{\rm th}$ observation. For each set $\Xi_j$, we compute the $p^{\rm th}$ percentile value, which we denote $\Xi_j|_{p}$. In our case, we choose $p=50$, which is the median. Smaller values of $p$ with emphasise contributions from higher-density regions, lower values of $p$ will emphasise lower-density regions. The observation with the minimum $\Xi_j|_{p}$ is defined as the centroid observation.
 
 One advantage of this procedure is that it is well-defined for relatively small numbers of observations. In fact, given the relatively expensive nature of this computation, the procedure is best performed on relatively small numbers of observations. However, small numbers of observations may be subject to Poisson noise, necessitating an uncertainty estimate.
 
@@ -22,7 +26,6 @@ To estimate the uncertainty, we partition the $n$ observations into $\sqrt{n}$ s
 
 In practice, we find that our uncertainty estimates are converged for $n>100$ observations, but the uncertainty ellipsoid shape and orientation is dependent on the structure of the underlying distribution of observations. This suggests that further refinement of the algorithm may allow for improved characterisation of the on-sky distributions.
 
--------
 
 #### Extensions.
 
